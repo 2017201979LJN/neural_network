@@ -1,0 +1,12 @@
+test_model: test_model.o layer.o matrix.o node.o
+	g++ -o test_model test_model.o layer.o matrix.o node.o -O3
+test_model.o: test_model.cpp layer.h matrix.h node.h
+	g++ -c test_model.cpp -O3
+layer.o: layer.cpp layer.h matrix.h node.h
+	g++ -c layer.cpp -O3
+matrix.o: matrix.cpp matrix.h
+	g++ -c matrix.cpp -O3
+node.o:	node.cpp node.h
+	g++ -c node.cpp -O3
+clean:
+	rm test_model test_model.o layer.o matrix.o node.o
